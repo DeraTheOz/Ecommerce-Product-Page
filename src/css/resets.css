@@ -73,6 +73,12 @@ picture {
     display: block;
 }
 
+/* Clear default styles for anchor links */
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -91,4 +97,16 @@ body {
     background-color: var(--White);
     min-height: 100svh;
     line-height: 1.5;
+}
+
+.logo-icon {
+    width: 138px;
+    height: 20px;
+}
+
+.actions__cart-icon {
+    width: 22px;
+    height: 20px;
+    fill: var(--Dark-grayish-blue);
+    transition: fill 0.3s ease-in;
 }

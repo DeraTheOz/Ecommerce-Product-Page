@@ -6,8 +6,8 @@
         <meta
             name="description"
             content="Enjoy a seamless shopping experience on our
-  product page. Browse through items in a user-friendly lightbox gallery, switch product images
-  with ease, add items to your cart, and manage your selections effortlessly."
+              product page. Browse through items in a user-friendly lightbox gallery, switch product images
+              with ease, add items to your cart, and manage your selections effortlessly."
         />
 
         <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
@@ -17,8 +17,45 @@
         <title>E-commerce product page</title>
     </head>
     <body>
-        Collections Men Women About Contact Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are
-        your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer. $125.00 50% $250.00 0 Add to cart
+        <header class="header">
+            <div class="container">
+            <nav class="header__logo">
+                <a href="#" class="logo">
+                    <svg class="logo-icon" aria-hidden="true">
+                        <use xlink:href="./images/logo.svg#logo"></use>
+                    </svg>
+                </a>
+            </nav>
+            <nav class="header__nav">
+                <ul class="nav__links" role="list">
+                    <li><a href="#" class="nav__link">Collections</a></li>
+                    <li><a href="#" class="nav__link">Men</a></li>
+                    <li><a href="#" class="nav__link">Women</a></li>
+                    <li><a href="#" class="nav__link">About</a></li>
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <button
+                    type="button"
+                    class="actions__cart"
+                    aria-label="Open
+                Cart"
+                >
+                    <span class="actions__cart-quantity" aria-live="polite">3</span>
+                    <svg class="actions__cart-icon" aria-hidden="true">
+                        <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
+                    </svg>
+                </button>
+                <button type="button" class="actions__profile" aria-label="Open Profile">
+                    <img src="./images/image-avatar.png" alt="User profile picture" />
+                </button>
+            </div>
+            </div>
+        </header>
+
+        Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer. $125.00 50% $250.00 0
+        Add to cart
     </body>
 </html>

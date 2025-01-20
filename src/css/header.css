@@ -1,0 +1,79 @@
+/* // HEADER */
+.header {
+    max-width: 90rem;
+    padding: 0 5rem;
+    margin: 0 auto;
+}
+
+.container {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--Grayish-blue);
+}
+
+.header__logo {
+    margin-right: 2.5rem;
+    cursor: pointer;
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+}
+
+.nav__links li + li {
+    margin-left: 1rem;
+}
+
+/* // CART && PROFILE */
+.header__actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions__cart {
+    background: none;
+    border: none;
+    width: 22px;
+    height: 20px;
+    margin-right: 2rem;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    position: relative;
+}
+
+.actions__cart-quantity {
+    font-size: 0.625rem;
+    color: var(--White);
+    min-width: 15px;
+    min-height: 15px;
+    padding-top: 2.5px;
+    border-radius: 50%;
+    background-color: var(--Orange);
+    position: absolute;
+    top: -8px;
+    right: -5px;
+}
+
+.actions__profile {
+    width: 38px;
+    height: 38px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    transition: border 0.2s ease-in;
+    cursor: pointer;
+}
+
+/* // Add on profile click */
+.actions__profile--active {
+    border: 1px solid var(--Orange);
+}
+
+/* // Add on cart btn click */
+.cart--active .actions__cart-icon {
+    fill: var(--Very-dark-blue);
+}
