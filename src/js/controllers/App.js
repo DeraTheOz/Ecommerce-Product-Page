@@ -1,6 +1,6 @@
-import { navLinkClicks } from '../utils/header-actions.js';
+import cartController from './cart-controller.js';
 
 const init = () => {
-    navLinkClicks();
+    cartController().init();
 };
 init();

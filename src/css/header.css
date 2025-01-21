@@ -98,7 +98,7 @@
 }
 
 /* // Add on profile click */
-.actions__profile--active {
+.profile--open {
     border: 1px solid var(--Orange);
 }
 
