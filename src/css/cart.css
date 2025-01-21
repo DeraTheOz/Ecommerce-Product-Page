@@ -6,7 +6,7 @@
     color: var(--Dark-grayish-blue);
     background-color: var(--White);
     border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart__title {
