@@ -77,6 +77,7 @@ picture {
 a {
     text-decoration: none;
     color: currentColor;
+    outline: none;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -91,7 +92,7 @@ select {
 /* Set core body defaults */
 body {
     font-family: 'Kumbh Sans', serif;
-    font-size: 1rem;
+    font-size: .875rem;
     font-weight: 400;
     color: var(--Dark-grayish-blue);
     background-color: var(--White);

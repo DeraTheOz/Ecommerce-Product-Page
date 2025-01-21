@@ -1,29 +1,62 @@
 /* // HEADER */
-.header {
+.container {
     max-width: 90rem;
-    padding: 0 5rem;
+    padding: 0 2rem;
     margin: 0 auto;
 }
 
-.container {
-    height: 5rem;
+.header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--Grayish-blue);
 }
 
+.header__logo,
+.header__nav,
+.header__actions {
+    height: 5rem;
+}
+
 .header__logo {
     margin-right: 2.5rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
 }
 
 .nav__links {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .nav__links li + li {
     margin-left: 1rem;
+}
+
+.nav__links li {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.3s ease-in;
+}
+
+.nav__links li:has(.nav__link:focus),
+.nav__links li:has(.nav__link:hover) {
+    color: var(--Black);
+    border-bottom: 3px solid var(--Orange);
+}
+
+.nav__links li:has(.nav__link:target) {
+    color: var(--Very-dark-blue);
+    border-bottom: 3px solid var(--Orange);
 }
 
 /* // CART && PROFILE */
@@ -32,6 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .actions__cart {
@@ -56,6 +90,7 @@
     position: absolute;
     top: -8px;
     right: -5px;
+    display: none;
 }
 
 .actions__profile {
@@ -77,3 +112,5 @@
 .cart--active .actions__cart-icon {
     fill: var(--Very-dark-blue);
 }
+
+/* // 768px */
