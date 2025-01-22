@@ -1,14 +1,14 @@
-// import productActions from '../utils/product-actions.js';
-// import { handleNavClicks } from '../utils/nav-actions.js';
+import productActions from '../utils/product-actions.js';
+import { handleNavClicks } from '../utils/nav-actions.js';
 
-// const productController = function () {
-//     const init = () => {
-//         handleNavClicks();
-//         productActions.handleLargeImageSwitch();
-//         productActions.handleThumbnailClicks();
-//     };
+const productController = function () {
+    const init = () => {
+        handleNavClicks();
+        productActions.handleLargeImageSwitch();
+        productActions.handleThumbnailClicks();
+    };
 
-//     return { init };
-// };
+    return { init };
+};
 
-// export default productController();
+export default productController();

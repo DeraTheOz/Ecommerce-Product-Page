@@ -5,4 +5,4 @@ const init = () => {
     cartController.init();
     productController.init();
 };
-// init();
+init();

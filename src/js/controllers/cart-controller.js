@@ -2,7 +2,7 @@ import { cartView } from '../views/cart-view.js';
 
 const cartController = function () {
     const init = () => {
-        // eventListeners();
+        eventListeners();
     };
 
     const eventListeners = () => {
