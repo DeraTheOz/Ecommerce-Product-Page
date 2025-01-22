@@ -3,18 +3,6 @@ import { cartView } from '../views/cart-view.js';
 const cartController = function () {
     const init = () => {
         eventListeners();
-        handleNavClicks();
-    };
-
-    const handleNavClicks = () => {
-        const navLinks = document.querySelectorAll('.nav__link');
-
-        navLinks.forEach(navItem => {
-            navItem.addEventListener('click', () => {
-                navLinks.forEach(item => item.classList.remove('active'));
-                navItem.classList.add('active');
-            });
-        });
     };
 
     const eventListeners = () => {
@@ -43,4 +31,4 @@ const cartController = function () {
     return { init };
 };
 
-export default cartController;
+export default cartController();
