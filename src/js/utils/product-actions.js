@@ -19,7 +19,7 @@ const productActions = function () {
     };
 
     const handleLargeImageSwitch = () => {
-        productThumbnails[0].classList.add('thumbnail--active');
+        // productThumbnails[0].classList.add('thumbnail--active');
 
         thumbnailImages.forEach((thumbnailImage, index) => {
             thumbnailImage.addEventListener('click', () => {

@@ -5,11 +5,11 @@
     border-bottom: 1px solid var(--Grayish-blue);
 }
 
-.header__logo,
+/* .header__logo,
 .header__nav,
 .header__actions {
     height: 5rem;
-}
+} */
 
 .header__logo {
     margin-right: 2.5rem;
