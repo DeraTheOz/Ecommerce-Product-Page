@@ -19,6 +19,18 @@
     <body>
         <div class="container">
             <header class="header">
+                <nav class="header__menu flex-center">
+                    <button type="button" class="menu__button menu--open flex-center">
+                        <svg class="menu__icon">
+                            <use xlink:href="./images/icon-menu.svg#icon-menu"></use>
+                        </svg>
+                    </button>
+                    <button type="button" class="menu__button menu--closed flex-center">
+                        <svg class="menu__icon">
+                            <use xlink:href="./images/icon-close.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </nav>
                 <nav class="header__logo">
                     <a href="#" class="logo">
                         <svg class="logo-icon" aria-hidden="true">
@@ -50,7 +62,7 @@
 
             <section class="product">
                 <div class="product__container">
-                    <article>
+                    <article class="product__image--box">
                         <img
                             class="product__image"
                             src="./images/image-product-1.jpg"
@@ -89,6 +101,7 @@
                         </article>
                     </div>
                 </div>
+
                 <div class="product__details">
                     <span class="product__type">Sneaker Company</span>
                     <h2 class="product__title">Fall Limited Edition Sneakers</h2>
@@ -101,7 +114,7 @@
                         <p class="product__price--original">$250.00</p>
                     </div>
 
-                    <div class="button__container flex-center gap-sm">
+                    <div class="button__container mt-md flex-center gap-sm">
                         <div class="button__actions flex-center gap-md" role="group" aria-label="Quantity Control">
                             <button
                                 type="button"
@@ -126,8 +139,11 @@
                             </button>
                         </div>
 
-                        <button type="button" class="button__cart flex-center
-                        gap-sm" aria-label="Add Item To Cart">
+                        <button
+                            type="button"
+                            class="button__cart flex-center justify-center gap-sm"
+                            aria-label="Add Item To Cart"
+                        >
                             <svg class="cart__button" aria-hidden="true">
                                 <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
                             </svg>
