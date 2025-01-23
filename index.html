@@ -101,33 +101,34 @@
                         <p class="product__price--original">$250.00</p>
                     </div>
 
-                    <div class="button__container">
-                        <div class="button__actions" role="group" aria-label="Quantity Control">
+                    <div class="button__container flex-center gap-sm">
+                        <div class="button__actions flex-center gap-md" role="group" aria-label="Quantity Control">
                             <button
                                 type="button"
-                                class="btn--decrement"
+                                class="button__decrement flex-center"
                                 aria-label="Decrease Quantity"
                                 data-name="decrement"
                             >
-                                <svg class="icon-decrement" aria-hidden="true">
+                                <svg class="icon-minus" aria-hidden="true">
                                     <use xlink:href="./images/icon-minus.svg#icon-minus"></use>
                                 </svg>
                             </button>
-                            <span class="menu__item--quantity" aria-live="polite" aria-atomic="true">0</span>
+                            <span class="item--quantity" aria-live="polite" aria-atomic="true">0</span>
                             <button
                                 type="button"
-                                class="btn--increment"
+                                class="button__increment flex-center"
                                 aria-label="Increase Quantity"
                                 data-name="increment"
                             >
-                                <svg class="icon-increment" aria-hidden="true">
+                                <svg class="icon-plus" aria-hidden="true">
                                     <use xlink:href="./images/icon-plus.svg#icon-plus"></use>
                                 </svg>
                             </button>
                         </div>
 
-                        <button type="button" class="btn-cart">
-                            <svg class="cart-btn" aria-hidden="true">
+                        <button type="button" class="button__cart flex-center
+                        gap-sm" aria-label="Add Item To Cart">
+                            <svg class="cart__button" aria-hidden="true">
                                 <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
                             </svg>
                             Add to cart
