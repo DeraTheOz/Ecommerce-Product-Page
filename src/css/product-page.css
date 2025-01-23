@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
     margin: 4rem auto;
     border: 1px solid red;
 }
@@ -119,38 +119,56 @@
 }
 
 /* ////////// */
-.button__container {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-}
-
 .button__actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 5rem;
-    background-color: var(--Grayish-blue);
+    /* width: 100%; */
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--Light-grayish-blue);
 }
 
-.btn--decrement {
+.item--quantity {
+    color: var(--Very-dark-blue);
+    font-weight: 600;
+}
+
+.button__decrement {
     background: none;
     border: none;
+    outline: none;
     width: 12px;
     height: 4px;
+    fill: var(--Orange);
+    cursor: pointer;
+    transition: all 0.3s ease-in;
 }
 
-.btn--increment {
+.button__increment {
     background: none;
     border: none;
+    outline: none;
     width: 12px;
     height: 12px;
+    fill: var(--Orange);
+    cursor: pointer;
+    transition: all 0.15s ease-in;
 }
 
-.btn-cart {
+.button__decrement:hover,
+.button__increment:hover,
+.button__decrement:active,
+.button__increment:active {
+    fill: var(--Pale-orange);
+}
+
+.button__cart {
     background: none;
     border: none;
-    display: flex;
+    /* display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 1rem; */
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 8px;
     background-color: var(--Orange);
 }

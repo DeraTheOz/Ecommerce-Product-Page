@@ -3,3 +3,28 @@
     padding: 0 2rem;
     margin: 0 auto;
 }
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.space-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.gap-sm {
+    gap: 1rem;
+}
+
+.gap-md {
+    gap: 2rem;
+}
