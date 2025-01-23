@@ -90,9 +90,49 @@
                     </div>
                 </div>
                 <div class="product__details">
-                    Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are your perfect casual
-                    wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can
-                    offer. $125.00 50% $250.00 0 Add to cart
+                    <span class="product__type">Sneaker Company</span>
+                    <h2 class="product__title">Fall Limited Edition Sneakers</h2>
+                    <p class="product__description">
+                        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber
+                        outer sole, they’ll withstand everything the weather can offer.
+                    </p>
+                    <div class="product__price--container">
+                        <p class="product__price">$125.00 <span>50%</span></p>
+                        <p class="product__price--original">$250.00</p>
+                    </div>
+
+                    <div class="button__container">
+                        <div class="button__actions" role="group" aria-label="Quantity Control">
+                            <button
+                                type="button"
+                                class="btn--decrement"
+                                aria-label="Decrease Quantity"
+                                data-name="decrement"
+                            >
+                                <svg class="icon-decrement" aria-hidden="true">
+                                    <use xlink:href="./images/icon-minus.svg#icon-minus"></use>
+                                </svg>
+                            </button>
+                            <span class="menu__item--quantity" aria-live="polite" aria-atomic="true">0</span>
+                            <button
+                                type="button"
+                                class="btn--increment"
+                                aria-label="Increase Quantity"
+                                data-name="increment"
+                            >
+                                <svg class="icon-increment" aria-hidden="true">
+                                    <use xlink:href="./images/icon-plus.svg#icon-plus"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <button type="button" class="btn-cart">
+                            <svg class="cart-btn" aria-hidden="true">
+                                <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
+                            </svg>
+                            Add to cart
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
