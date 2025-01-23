@@ -59,12 +59,12 @@ label {
 }
 
 /* Balance text wrapping on headings */
-h1,
+/* h1,
 h2,
 h3,
 h4 {
     text-wrap: balance;
-}
+} */
 
 /* Make images easier to work with */
 img,
@@ -92,7 +92,7 @@ select {
 /* Set core body defaults */
 body {
     font-family: 'Kumbh Sans', serif;
-    font-size: .875rem;
+    font-size: 0.875rem;
     font-weight: 400;
     color: var(--Dark-grayish-blue);
     background-color: var(--White);
@@ -110,4 +110,19 @@ body {
     height: 20px;
     fill: var(--Dark-grayish-blue);
     transition: fill 0.3s ease-in;
+}
+
+.cart-btn {
+    width: 22px;
+    height: 20px;
+}
+
+.icon-plus {
+    width: 12px;
+    height: 12px;
+}
+
+.icon-minus {
+    width: 12px;
+    height: 4px;
 }
