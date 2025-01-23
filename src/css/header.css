@@ -3,12 +3,42 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--Grayish-blue);
+    position: relative;
 }
 
+.header .header__menu {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in;
+}
+
+.header .menu--closed {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in;
+}
+
+.header__menu,
 .header__logo,
 .header__nav,
 .header__actions {
     height: 5rem;
+}
+
+.header__menu {
+    margin-right: 1rem;
+    z-index: 1000;
+}
+
+.menu__button {
+    background: none;
+    border: none;
+    font-weight: 600;
+    padding: 0;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .header__logo {
@@ -33,7 +63,21 @@
     margin-left: 1rem;
 }
 
-.nav__links li {
+.nav__link {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.2s ease-in;
+}
+
+.nav__link.active {
+    color: var(--Very-dark-blue);
+    border-bottom: 3px solid var(--Orange);
+}
+
+/* .nav__links li {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -45,7 +89,7 @@
 .nav__links li.active {
     color: var(--Very-dark-blue);
     border-bottom: 3px solid var(--Orange);
-}
+} */
 
 /* // CART && PROFILE */
 .header__actions {
@@ -101,4 +145,52 @@
     fill: var(--Very-dark-blue);
 }
 
-/* // 768px */
+/* // 785px */
+@media screen and (max-width: 49.063em) {
+    .header {
+        padding: 0 2rem;
+    }
+
+    .header .header__menu {
+        display: flex;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* .header .menu--open {
+        display: block;
+        visibility: visible;
+        pointer-events: auto;
+        transition: all 0.3s ease-in;
+    } */
+
+    .header__nav {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 12rem;
+        height: 100svh;
+        font-weight: 600;
+        color: var(--Very-dark-blue);
+        padding: 6rem 2rem 0;
+        align-items: flex-start;
+        background-color: var(--White);
+        z-index: 999;
+    }
+
+    .nav__links {
+        height: min-content;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__link {
+        height: min-content;
+    }
+
+    .nav__link + .nav__link {
+        margin: 0;
+        margin-top: 1rem;
+    }
+}

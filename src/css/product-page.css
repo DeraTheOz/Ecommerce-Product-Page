@@ -3,16 +3,20 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
-    /* padding: 0 1rem; */
     margin: 4rem auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .product__container {
     min-width: 20rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+}
+
+.product__image--box {
+    border-radius: 9px;
+    cursor: pointer;
 }
 
 .product__image,
@@ -21,7 +25,7 @@
 }
 
 .product__thumbnails {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.625rem;
@@ -66,8 +70,8 @@
     min-width: 20rem;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    border: 1px solid red;
+    justify-content: center;
+    /* border: 1px solid red; */
 }
 
 .product__type {
@@ -84,15 +88,8 @@
 }
 
 .product__description {
-    font-size: 0.75rem;
+    font-size: 0.8rem; /* // .75rem => 12px */
     margin: 1.8rem 0 1rem;
-}
-
-.product__price--container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.2rem;
 }
 
 .product__price {
@@ -139,7 +136,7 @@
     height: 4px;
     fill: var(--Orange);
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    transition: all 0.15s ease-in;
 }
 
 .button__increment {
@@ -154,21 +151,44 @@
 }
 
 .button__decrement:hover,
-.button__increment:hover,
+.button__increment:hover {
+    fill: var(--Pale-orange);
+    transform: scale(1);
+}
+
 .button__decrement:active,
 .button__increment:active {
-    fill: var(--Pale-orange);
+    fill: var(--Orange);
+    transform: scale(1.1);
 }
 
 .button__cart {
     background: none;
     border: none;
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem; */
     width: 100%;
+    color: var(--Black);
+    font-weight: 600;
     padding: 1rem 2rem;
     border-radius: 8px;
     background-color: var(--Orange);
+    cursor: pointer;
+}
+
+.button__cart:hover,
+.button__cart:active {
+    opacity: 0.7;
+}
+
+/* //768px */
+/* .product__price--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+
+@media screen and (max-width: 49.063em) {
+    .product {
+        grid-template-columns: 1fr;
+    }
 }

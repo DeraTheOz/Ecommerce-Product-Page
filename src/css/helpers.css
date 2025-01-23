@@ -4,6 +4,10 @@
     margin: 0 auto;
 }
 
+.mt-md {
+    margin-top: 2rem;
+}
+
 .flex-center {
     display: flex;
     align-items: center;
@@ -13,11 +17,11 @@
     flex-direction: column;
 }
 
-.space-center {
+.justify-center {
     justify-content: center;
 }
 
-.space-between {
+.justify-between {
     justify-content: space-between;
 }
 
@@ -27,4 +31,10 @@
 
 .gap-md {
     gap: 2rem;
+}
+
+@media screen and (max-width: 49.063em) {
+    .container {
+        padding: 0;
+    }
 }
