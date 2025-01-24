@@ -21,7 +21,7 @@
     opacity: 0.7;
 }
 
-.item--quantity,
+.product__quantity,
 .cart__item--total {
     color: var(--Very-dark-blue);
     font-weight: 600;
