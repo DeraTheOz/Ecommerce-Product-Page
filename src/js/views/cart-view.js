@@ -10,7 +10,7 @@ export const cartView = function () {
             </div>
         </div>
     `;
-        parentEl.insertAdjacentHTML('beforeend', markup);
+        parentEl.insertAdjacentHTML('afterbegin', markup);
     };
 
     return { renderEmptyCart };
