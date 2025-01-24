@@ -33,7 +33,8 @@
     gap: 2rem;
 }
 
-@media screen and (max-width: 49.063em) {
+/* //758px */ /* // Tablet */
+@media screen and (max-width: 47.375em) {
     .container {
         padding: 0;
     }

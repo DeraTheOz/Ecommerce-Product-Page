@@ -58,6 +58,10 @@ label {
     line-height: 1.1;
 }
 
+p {
+    text-wrap: pretty;
+}
+
 /* Make images easier to work with */
 img,
 picture {
