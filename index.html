@@ -20,13 +20,13 @@
         <div class="container">
             <header class="header">
                 <nav class="header__menu flex-center">
-                    <button type="button" class="menu__button menu--open flex-center">
-                        <svg class="menu__icon">
+                    <button type="button" id="open" class="menu__button flex-center" aria-label="Open Menu">
+                        <svg class="menu__icon" aria-hidden="true">
                             <use xlink:href="./images/icon-menu.svg#icon-menu"></use>
                         </svg>
                     </button>
-                    <button type="button" class="menu__button menu--closed flex-center">
-                        <svg class="menu__icon">
+                    <button type="button" id="close" class="menu__button flex-center" aria-label="Close Menu" hidden>
+                        <svg class="menu__icon" aria-hidden="true">
                             <use xlink:href="./images/icon-close.svg#icon-close"></use>
                         </svg>
                     </button>
