@@ -49,7 +49,7 @@
                 </nav>
                 <div class="header__actions">
                     <button type="button" class="actions__cart" aria-label="Open Cart">
-                        <span class="actions__cart-quantity" aria-live="polite">3</span>
+                        <span class="actions__cart-quantity" aria-live="polite"></span>
                         <svg class="actions__cart-icon" aria-hidden="true">
                             <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
                         </svg>
@@ -104,13 +104,16 @@
 
                 <div class="product__details">
                     <span class="product__type">Sneaker Company</span>
-                    <h2 class="product__title">Fall Limited Edition Sneakers</h2>
+                    <h2 class="product__name">Fall Limited Edition Sneakers</h2>
                     <p class="product__description">
                         These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber
                         outer sole, they’ll withstand everything the weather can offer.
                     </p>
                     <div class="product__price--container">
-                        <p class="product__price">$125.00 <span>50%</span></p>
+                        <div class="flex-center">
+                            <p class="product__price">$125.00</p>
+                            <p class="procuct__discount">50%</p>
+                        </div>
                         <p class="product__price--original">$250.00</p>
                     </div>
 
@@ -126,7 +129,8 @@
                                     <use xlink:href="./images/icon-minus.svg#icon-minus"></use>
                                 </svg>
                             </button>
-                            <span class="item--quantity" aria-live="polite" aria-atomic="true">0</span>
+                            <span class="product__quantity" aria-live="polite"
+                            aria-atomic="true">3</span>
                             <button
                                 type="button"
                                 class="button__increment flex-center"
