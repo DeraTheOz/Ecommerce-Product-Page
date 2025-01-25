@@ -1,6 +1,6 @@
 import cartView from '../views/cart-view.js';
-import productController from './product-controller.js';
 import cartModel from '../models/cart-model.js';
+// import productController from './product-controller.js';
 
 const cartController = function () {
     const init = () => {
@@ -9,32 +9,76 @@ const cartController = function () {
 
     const eventListeners = () => {
         const cartContainer = document.querySelector('.header__actions');
-        const cartButton = cartContainer.querySelector('.actions__cart');
+        const profileContainer = document.querySelector('.actions__profile');
+        // const cartButton = cartContainer.querySelector('.actions__cart');
 
-        // Cart button click to toggle cart visibility
-        cartButton.addEventListener('click', () => {
-            const cart = cartContainer.querySelector('.cart');
-            if (!cart) {
-                // Render empty or filled cart based on the model's state
-                if (cartModel.cartItems.length > 0) {
-                    cartView.renderFilledCart(cartModel.cartItems);
-                } else {
-                    cartView.renderEmptyCart();
-                }
-                cartButton.classList.add('cart--active');
-            } else {
-                cart.remove(); // Remove cart container
+        // Cart button to toggle cart visibility
+        cartContainer.addEventListener('click', e => {
+            
+            const cartButton = e.target.closest('.actions__cart');
+            if (!cartButton) return;
+
+            const cartEmpty = cartContainer.querySelector('.cart__empty');
+            const cartFilled = cartContainer.querySelector('.cart__filled');
+
+            if (cartEmpty) {
+                cartEmpty.remove();
                 cartButton.classList.remove('cart--active');
+            } else {
+                cartView.renderEmptyCart();
             }
+
+            if (cartModel.cartItems.length >= 0) {
+                if (cartEmpty) {
+                    cartEmpty.remove();
+                    cartButton.classList.remove('cart--active');
+                    return;
+                }
+            } else {
+                cartView.renderFilledCart(cartModel.cartItems);
+                cartButton.classList.add('cart--active');
+            }
+        });
+
+        // cartButton.addEventListener('click', () => {
+        //     const cart = cartContainer.querySelector('.cart');
+        //     if (!cart) {
+        //         // Render empty or filled cart based on the model's state
+        //         if (cartModel.cartItems.length > 0) {
+        //             cartView.renderFilledCart(cartModel.cartItems);
+        //         } else {
+        //             cartView.renderEmptyCart();
+        //         }
+        //         cartButton.classList.add('cart--active');
+        //     } else {
+        //         cart.remove();
+        //         cartButton.classList.remove('cart--active');
+        //         return;
+        //     }
+        // });
+
+        profileContainer.addEventListener('click', () => {
+            profileContainer.classList.toggle('profile--open');
         });
     };
 
     const addToCart = product => {
+        console.log(product);
         cartModel.addItem(product);
+
+        // cartView.updateCartIcon(cartModel.getTotalQuantity());
+    };
+
+    const updateCartItem = product => {
+        console.log(product);
+        cartModel.updateItem(product);
+    };
+
+    const updateCartIconView = () => {
         cartView.updateCartIcon(cartModel.getTotalQuantity());
     };
 
-    return { init, addToCart };
+    return { init, addToCart, updateCartItem, updateCartIconView };
 };
 
 export default cartController();
@@ -88,7 +132,6 @@ export default cartController();
 // };
 
 // export default cartController();
-
 
 // ORIGINAL
 // import productController from './product-controller.js';

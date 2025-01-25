@@ -20,26 +20,26 @@ const cartView = function () {
         const itemsMarkup = cartItems
             .map(
                 item => `
-            <article class="cart__item flex-center">
-                <div class="cart__item--box">
-                    <img src="${largeImage1}"
-                        alt="${item.name}" class="cart__item--image" />
-                    <div class="cart__item--details">
-                        <p class="cart__item--name item--name">${item.name}</p>
-                        <div class="item--details__box">
-                            <span class="cart__item--price">$${item.price.toFixed(2)}</span>
-                            <span class="cart__item--quantity">x ${item.quantity}</span>
-                            <span class="cart__item--total">$${(item.price * item.quantity).toFixed(2)}</span>
+                    <article class="cart__item flex-center">
+                        <div class="cart__item--box">
+                            <img src="${largeImage1}"
+                                alt="${item.name}" class="cart__item--image" />
+                            <div class="cart__item--details">
+                                <p class="cart__item--name item--name">${item.name}</p>
+                                <div class="item--details__box">
+                                    <span class="cart__item--price">$${item.price.toFixed(2)}</span>
+                                    <span class="cart__item--quantity">x ${item.quantity}</span>
+                                    <span class="cart__item--total">$${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <button type="button" class="cart__item--btn" aria-label="Remove Menu Item">
-                    <svg class="icon-delete" aria-hidden="true">
-                        <use xlink:href="${iconDelete}#delete"></use>
-                    </svg>
-                </button>
-            </article>
-        `
+                        <button type="button" class="cart__item--btn" aria-label="Remove Menu Item">
+                            <svg class="icon-delete" aria-hidden="true">
+                                <use xlink:href="${iconDelete}#delete"></use>
+                            </svg>
+                        </button>
+                    </article>
+                `
             )
             .join('');
 
@@ -58,8 +58,18 @@ const cartView = function () {
     };
 
     const updateCartIcon = totalQuantity => {
+        console.log(totalQuantity);
         const cartIconBadge = document.querySelector('.actions__cart-quantity');
-        if (!cartIconBadge) return;
+
+        if (totalQuantity <= 0) {
+            cartIconBadge.style.display = 'none';
+            cartIconBadge.textContent = totalQuantity;
+            cartIconBadge.hidden = totalQuantity === 0;
+            console.log('CART ICON BADGE', cartIconBadge);
+            return;
+        }
+
+        console.log('CART ICON BADGE', cartIconBadge);
 
         cartIconBadge.style.display = 'block';
         cartIconBadge.textContent = totalQuantity;

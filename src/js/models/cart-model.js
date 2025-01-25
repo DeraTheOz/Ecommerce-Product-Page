@@ -2,12 +2,33 @@ const cartModel = function () {
     const cartItems = [];
 
     const addItem = product => {
+        console.log(product);
         const existingItem = cartItems.find(item => item.name === product.name);
+        if (!existingItem) cartItems.push(product);
+        console.log(cartItems);
+
+        // return cartItems.push(product);
+
+        // console.log(existingItem, product);
+
+        // if (existingItem) {
+        //     existingItem.quantity += product.quantity;
+        // } else {
+        //     cartItems.push(product);
+        //     console.log('CART', cartItems);
+        // }
+    };
+
+    const updateItem = product => {
+        console.log(product);
+        const existingItem = cartItems.find(cartItem => cartItem.name === product.name);
+        console.log(existingItem);
 
         if (existingItem) {
-            existingItem.quantity += product.quantity;
-        } else {
-            cartItems.push(product);
+            existingItem.quantity = product.quantity;
+            existingItem.price = product.price;
+
+            console.log('UPDATED CART', existingItem);
         }
     };
 
@@ -15,7 +36,7 @@ const cartModel = function () {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
-    return { cartItems, addItem, getTotalQuantity };
+    return { cartItems, addItem, updateItem, getTotalQuantity };
 };
 
 export default cartModel();
