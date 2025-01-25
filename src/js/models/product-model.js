@@ -16,7 +16,6 @@ const productModel = function () {
         if (!item) return;
 
         item.quantity++;
-        console.log(item);
         return item;
     };
 
@@ -25,7 +24,6 @@ const productModel = function () {
         if (!item) return null;
 
         item.quantity === 0 ? (item.quantity = 0) : item.quantity--;
-        console.log(item);
         return item;
     };
 
