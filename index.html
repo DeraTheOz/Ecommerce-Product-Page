@@ -57,105 +57,128 @@
                     <button type="button" class="actions__profile" aria-label="Open Profile">
                         <img src="./images/image-avatar.png" alt="User profile picture" />
                     </button>
+
+                    <!-- EMPTY CART START -->
+                    <!-- <div class="cart cart__empty">
+                        <p class="cart__title">Cart</p>
+                        <div class="cart__items--container">
+                            <p class="cart__empty--text">Your cart is empty</p>
+                        </div>
+                    </div> -->
+
+                    <!-- FILLED CART START -->
+                    <!-- <div class="cart cart__filled">
+                        <p class="cart__title">Cart</p>
+                        <div class="cart__items--container">
+                            <button
+                                type="button"
+                                class="button__checkout cta-btn flex-center justify-center mt-sm"
+                                aria-label="Confirm Order"
+                            >
+                                Checkout
+                            </button>
+                        </div>
+                    </div> -->
                 </div>
             </header>
 
-            <section class="product">
-                <div class="product__container">
-                    <article class="product__image--box">
-                        <img
-                            class="product__image"
-                            src="./images/image-product-1.jpg"
-                            alt="Fall Limited Edition Sneakers"
-                        />
-                    </article>
+            <main>
+                <section class="product">
+                    <div class="product__container">
+                        <article class="product__image--box">
+                            <img
+                                class="product__image"
+                                src="./images/image-product-1.jpg"
+                                alt="Fall Limited Edition Sneakers"
+                            />
+                        </article>
 
-                    <div class="product__thumbnails">
-                        <article class="product__thumbnail">
-                            <img
-                                class="thumbnail__image"
-                                src="./images/image-product-1-thumbnail.jpg"
-                                alt="Thumbnail: Fall Limited Edition Sneakers"
-                            />
-                        </article>
-                        <article class="product__thumbnail">
-                            <img
-                                class="thumbnail__image"
-                                src="./images/image-product-2-thumbnail.jpg"
-                                alt="Thumbnail: Fall Limited Edition Sneakers"
-                            />
-                        </article>
-                        <article class="product__thumbnail">
-                            <img
-                                class="thumbnail__image"
-                                src="./images/image-product-3-thumbnail.jpg"
-                                alt="Thumbnail: Fall Limited Edition Sneakers"
-                            />
-                        </article>
-                        <article class="product__thumbnail">
-                            <img
-                                class="thumbnail__image"
-                                src="./images/image-product-4-thumbnail.jpg"
-                                alt="Thumbnail: Fall Limited Edition Sneakers"
-                            />
-                        </article>
-                    </div>
-                </div>
-
-                <div class="product__details">
-                    <span class="product__type">Sneaker Company</span>
-                    <h2 class="product__name">Fall Limited Edition Sneakers</h2>
-                    <p class="product__description">
-                        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber
-                        outer sole, they’ll withstand everything the weather can offer.
-                    </p>
-                    <div class="product__price--container">
-                        <div class="flex-center">
-                            <p class="product__price">$125.00</p>
-                            <p class="procuct__discount">50%</p>
+                        <div class="product__thumbnails">
+                            <article class="product__thumbnail">
+                                <img
+                                    class="thumbnail__image"
+                                    src="./images/image-product-1-thumbnail.jpg"
+                                    alt="Thumbnail: Fall Limited Edition Sneakers"
+                                />
+                            </article>
+                            <article class="product__thumbnail">
+                                <img
+                                    class="thumbnail__image"
+                                    src="./images/image-product-2-thumbnail.jpg"
+                                    alt="Thumbnail: Fall Limited Edition Sneakers"
+                                />
+                            </article>
+                            <article class="product__thumbnail">
+                                <img
+                                    class="thumbnail__image"
+                                    src="./images/image-product-3-thumbnail.jpg"
+                                    alt="Thumbnail: Fall Limited Edition Sneakers"
+                                />
+                            </article>
+                            <article class="product__thumbnail">
+                                <img
+                                    class="thumbnail__image"
+                                    src="./images/image-product-4-thumbnail.jpg"
+                                    alt="Thumbnail: Fall Limited Edition Sneakers"
+                                />
+                            </article>
                         </div>
-                        <p class="product__price--original">$250.00</p>
                     </div>
 
-                    <div class="button__container mt-md flex-center gap-sm">
-                        <div class="button__actions flex-center gap-md" role="group" aria-label="Quantity Control">
-                            <button
-                                type="button"
-                                class="button__decrement flex-center"
-                                aria-label="Decrease Quantity"
-                                data-name="decrement"
-                            >
-                                <svg class="icon-minus" aria-hidden="true">
-                                    <use xlink:href="./images/icon-minus.svg#icon-minus"></use>
-                                </svg>
-                            </button>
-                            <span class="product__quantity" aria-live="polite"
-                            aria-atomic="true">0</span>
-                            <button
-                                type="button"
-                                class="button__increment flex-center"
-                                aria-label="Increase Quantity"
-                                data-name="increment"
-                            >
-                                <svg class="icon-plus" aria-hidden="true">
-                                    <use xlink:href="./images/icon-plus.svg#icon-plus"></use>
-                                </svg>
-                            </button>
+                    <div class="product__details">
+                        <span class="product__type">Sneaker Company</span>
+                        <h2 class="product__name">Fall Limited Edition Sneakers</h2>
+                        <p class="product__description">
+                            These low-profile sneakers are your perfect casual wear companion. Featuring a durable
+                            rubber outer sole, they’ll withstand everything the weather can offer.
+                        </p>
+                        <div class="product__price--container">
+                            <div class="flex-center">
+                                <p class="product__price">$125.00</p>
+                                <p class="procuct__discount">50%</p>
+                            </div>
+                            <p class="product__price--original">$250.00</p>
                         </div>
 
-                        <button
-                            type="button"
-                            class="button__cart cta-btn flex-center justify-center gap-sm"
-                            aria-label="Add Item To Cart"
-                        >
-                            <svg class="cart__button" aria-hidden="true">
-                                <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
-                            </svg>
-                            Add to cart
-                        </button>
+                        <div class="button__container mt-md flex-center gap-sm">
+                            <div class="button__actions flex-center gap-md" role="group" aria-label="Quantity Control">
+                                <button
+                                    type="button"
+                                    class="button__decrement flex-center"
+                                    aria-label="Decrease Quantity"
+                                    data-name="decrement"
+                                >
+                                    <svg class="icon-minus" aria-hidden="true">
+                                        <use xlink:href="./images/icon-minus.svg#icon-minus"></use>
+                                    </svg>
+                                </button>
+                                <span class="product__quantity" aria-live="polite" aria-atomic="true">0</span>
+                                <button
+                                    type="button"
+                                    class="button__increment flex-center"
+                                    aria-label="Increase Quantity"
+                                    data-name="increment"
+                                >
+                                    <svg class="icon-plus" aria-hidden="true">
+                                        <use xlink:href="./images/icon-plus.svg#icon-plus"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button__cart cta-btn flex-center justify-center gap-sm"
+                                aria-label="Add Item To Cart"
+                            >
+                                <svg class="cart__button" aria-hidden="true">
+                                    <use xlink:href="./images/icon-cart.svg#cart-icon"></use>
+                                </svg>
+                                Add to cart
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </main>
         </div>
     </body>
 </html>
