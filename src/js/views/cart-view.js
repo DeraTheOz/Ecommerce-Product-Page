@@ -3,24 +3,23 @@ import iconDelete from '../../../images/icon-delete.svg';
 
 const cartView = function () {
     const parentEl = document.querySelector('.header__actions');
-
-    const renderEmptyCart = () => {
-        const markup = `
-            <div class="cart cart__empty">
-                <p class="cart__title">Cart</p>
-                <div class="cart__items--container">
-                    <p class="cart__empty--text">Your cart is empty</p>
-                </div>
-            </div>
-        `;
-        parentEl.insertAdjacentHTML('beforeend', markup);
-    };
+    const cartEmpty = parentEl.querySelector('.cart__empty');
+    const cartFilled = parentEl.querySelector('.cart__filled');
 
     const renderFilledCart = cartItems => {
-        const itemsMarkup = cartItems
-            .map(
-                item => `
-                    <article class="cart__item flex-center">
+
+        if (cartFilled) {
+            const itemsMarkup = cartItems
+                .map(function (item) {
+                    const existingCartItem = cartFilled.querySelector(`.cart__item[data-name="${item.name}"]`);
+                    if (existingCartItem) {
+                        updateCartItem(existingCartItem, item);
+                        return;
+                    }
+
+                    return `
+                    <article class="cart__item flex-center"
+                    data-name="${item.name}">
                         <div class="cart__item--box">
                             <img src="${largeImage1}"
                                 alt="${item.name}" class="cart__item--image" />
@@ -39,22 +38,21 @@ const cartView = function () {
                             </svg>
                         </button>
                     </article>
-                `
-            )
-            .join('');
+                `;
+                })
+                .join('');
 
-        const markup = `
-            <div class="cart cart__filled">
-                <p class="cart__title">Cart</p>
-                <div class="cart__items--container">
-                    ${itemsMarkup}
-                    <button type="button" class="button__checkout cta-btn flex-center justify-center mt-sm" aria-label="Confirm Order">
-                        Checkout
-                    </button>
-                </div>
-            </div>
-        `;
-        parentEl.insertAdjacentHTML('beforeend', markup);
+            cartFilled.querySelector('.cart__items--container').insertAdjacentHTML('afterbegin', itemsMarkup);
+        }
+    };
+
+    const updateCartItem = (cartItemEl, item) => {
+        const quantityEl = cartItemEl.querySelector('.cart__item--quantity');
+        const priceTotalEl = cartItemEl.querySelector('.cart__item--total');
+
+        // Update quantity and total price
+        quantityEl.textContent = `x ${item.quantity}`;
+        priceTotalEl.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
     };
 
     const updateCartIcon = totalQuantity => {
@@ -75,7 +73,7 @@ const cartView = function () {
         cartIconBadge.hidden = totalQuantity === 0;
     };
 
-    return { renderEmptyCart, renderFilledCart, updateCartIcon };
+    return { renderFilledCart, updateCartIcon };
 };
 
 export default cartView();

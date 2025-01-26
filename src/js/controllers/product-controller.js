@@ -36,6 +36,7 @@ const productController = function () {
 
         addToCartButton.addEventListener('click', () => {
             cartController.updateCartIconView();
+            cartController.updateCartView();
         });
 
         incrementBtn.addEventListener('click', () => {
@@ -66,6 +67,12 @@ const productController = function () {
             // Update Product Quantity
             const updatedProduct = productModel.decreaseItemQuantity(productData);
             console.log('DECREASED QUANTITY', updatedProduct);
+            
+            //////////////////
+            if(updatedProduct.quantity === 0) {
+                cartController.updateCartIconView();
+            }
+            //////////////////
 
             // Update Product Quantity in the View
             productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
