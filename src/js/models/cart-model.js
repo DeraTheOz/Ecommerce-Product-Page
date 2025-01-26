@@ -21,7 +21,22 @@ const cartModel = function () {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
-    return { cartItems, addItem, updateItem, getTotalQuantity };
+    const getCartItems = () => {
+        return cartItems;
+    };
+
+    const removeCartItem = itemName => {
+        const itemIndex = cartItems.findIndex(cartItem => cartItem.name === itemName);
+        if (itemIndex === -1) return null;
+
+        // Remove the item from cart
+        const removedItem = cartItems.splice(itemIndex, 1)[0];
+        const isCartEmpty = cartItems.length === 0; // Checks if cart is empty
+
+        return { removedItem, isCartEmpty };
+    };
+
+    return { getCartItems, removeCartItem, cartItems, addItem, updateItem, getTotalQuantity };
 };
 
 export default cartModel();

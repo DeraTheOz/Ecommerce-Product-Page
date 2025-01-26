@@ -36,7 +36,8 @@ const productController = function () {
 
         addToCartButton.addEventListener('click', () => {
             cartController.updateCartIconView();
-            cartController.updateCartView();
+            // cartController.updateCartView();
+            // cartController.checkCartState();
         });
 
         incrementBtn.addEventListener('click', () => {
@@ -67,20 +68,29 @@ const productController = function () {
             // Update Product Quantity
             const updatedProduct = productModel.decreaseItemQuantity(productData);
             console.log('DECREASED QUANTITY', updatedProduct);
-            
-            //////////////////
-            if(updatedProduct.quantity === 0) {
-                cartController.updateCartIconView();
-            }
-            //////////////////
+
+            //////////////////////////////
+            // Update quantity in cart
+            cartController.updateCartItem(updatedProduct);
 
             // Update Product Quantity in the View
             productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
 
-            // Update product in the cart
-            cartController.updateCartItem(updatedProduct);
+            // Remove item from cart if quantity reaches 0
+            if (updatedProduct.quantity === 0) {
+                
+                cartController.handleRemoveCartItem(productName);
+            }
 
-            console.log('NEW PRODUCT DATA', productData);
+            //////////////////////////////
+
+            // Update Product Quantity in the View
+            // productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
+
+            // Update product in the cart
+            // cartController.updateCartItem(updatedProduct);
+
+            // console.log('NEW PRODUCT DATA', productData);
         });
     };
 

@@ -2,6 +2,10 @@ import cartView from '../views/cart-view.js';
 import cartModel from '../models/cart-model.js';
 
 const cartController = function () {
+    const cartItems = cartModel.getCartItems();
+    const cartEmpty = document.querySelector('.cart__empty');
+    const cartFilled = document.querySelector('.cart__filled');
+
     const init = () => {
         eventListeners();
     };
@@ -15,46 +19,61 @@ const cartController = function () {
             const cartButton = e.target.closest('.actions__cart');
             if (!cartButton) return;
 
-            const cartEmpty = document.querySelector('.cart__empty');
-            const cartFilled = document.querySelector('.cart__filled');
-
-            const cart = cartModel.cartItems.length;
-            console.log(cart);
-
             // Toggle cart visibility
-            if (cartModel.cartItems.length === 0) {
-                console.log('=== 0', cart);
-
+            if (cartItems.length === 0 || cartItems[0].quantity === 0) {
+                console.log(cartItems.length);
                 cartEmpty.hidden = false;
                 cartEmpty.classList.toggle('cart--active');
-                console.log('=== 0', cartModel.cartItems.length);
-            } else {
-                console.log('else === 0', cart);
-
-                cartEmpty.hidden = true;
-                cartEmpty.classList.remove('cart--active');
-                console.log(cartModel.cartItems.length);
+                return;
             }
 
-            if (cartModel.cartItems.length !== 0) {
-                console.log(cartModel.cartItems.length);
-                cartFilled.hidden = false;
-                cartFilled.classList.toggle('cart--active');
-                cartView.renderFilledCart(cartModel.cartItems);
-
-                console.log('!== 0', cart);
-            } else {
-                console.log(cartModel.cartItems.length);
-                cartFilled.hidden = true;
-                cartFilled.classList.remove('cart--active');
-
-                console.log('else !==', cart);
-            }
+            cartFilled.hidden = false;
+            updateCartView();
+            cartFilled.classList.toggle('cart--active');
         });
 
         profileContainer.addEventListener('click', () => {
             profileContainer.classList.toggle('profile--open');
         });
+    };
+
+    const handleRemoveCartItem = productName => {
+        // Find matching product
+        const item = cartItems.find(item => item.name === productName);
+        
+
+        // Remove item from cart
+        const { removedItem, isCartEmpty } = cartModel.removeCartItem(productName);
+        if (!removedItem) return;
+
+        // Find cart item using it's data-name and remove from cart
+        const cartItemEl = document.querySelector(`.cart__item[data-name="${productName}"]`);
+        if (cartItemEl) cartItemEl.remove();
+
+        console.log(removedItem, isCartEmpty);
+    };
+
+    const checkCartState = () => {
+        // if (cartItems[0].quantity === 0) {
+        //     cartFilled.hidden = true;
+        //     cartFilled.classList.remove('cart--active');
+        //     cartFilled.remove();
+
+        //     cartEmpty.hidden = false;
+        //     cartEmpty.classList.toggle('cart--active');
+        // }
+
+        console.log(cartItems);
+        if (cartItems[0].quantity !== 0) {
+            console.log(cartItems);
+            cartEmpty.hidden = true;
+            cartEmpty.classList.remove('cart--active');
+            cartEmpty.remove();
+
+            cartFilled.hidden = false;
+            updateCartView();
+            cartFilled.classList.toggle('cart--active');
+        }
     };
 
     const addToCart = product => {
@@ -70,10 +89,18 @@ const cartController = function () {
     };
 
     const updateCartView = () => {
-        cartView.renderFilledCart(cartModel.cartItems);
+        cartView.renderFilledCart(cartItems);
     };
 
-    return { init, addToCart, updateCartItem, updateCartView, updateCartIconView };
+    return {
+        init,
+        handleRemoveCartItem,
+        addToCart,
+        checkCartState,
+        updateCartItem,
+        updateCartView,
+        updateCartIconView
+    };
 };
 
 export default cartController();
