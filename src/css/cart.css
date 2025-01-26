@@ -1,5 +1,5 @@
-.cart__empty,
-.cart__filled {
+.cart__filled,
+.cart__empty {
     position: absolute;
     bottom: -10rem;
     right: -0.5rem;
@@ -9,6 +9,21 @@
     border-radius: 4px;
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in;
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cart__empty.cart--active {
+    display: block;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cart__filled.cart--active {
+    display: block;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .cart__title {
