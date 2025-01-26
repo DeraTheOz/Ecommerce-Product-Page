@@ -4,7 +4,7 @@ const productModel = function () {
     const productData = {
         name: null,
         price: null,
-        quantity: null
+        quantity: 0
     };
 
     const getProductData = () => {
@@ -12,19 +12,17 @@ const productModel = function () {
     };
 
     const increaseItemQuantity = product => {
-        const item = cartModel.cartItems.find(item => item.name === product.name);
-        if (!item) return;
-
-        item.quantity++;
-        return item;
+        return product.quantity++;
     };
 
     const decreaseItemQuantity = product => {
-        const item = cartModel.cartItems.find(item => item.name === product.name);
-        if (!item) return null;
+        return product.quantity === 0 ? (product.quantity = 0) : product.quantity--;
+        
+        // const item = cartModel.cartItems.find(item => item.name === product.name);
+        // if (!item) return null;
 
-        item.quantity === 0 ? (item.quantity = 0) : item.quantity--;
-        return item;
+        // item.quantity === 0 ? (item.quantity = 0) : item.quantity--;
+        // return item;
     };
 
     return { getProductData, increaseItemQuantity, decreaseItemQuantity };

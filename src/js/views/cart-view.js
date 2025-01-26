@@ -61,7 +61,6 @@ const cartView = function () {
             cartIconBadge.style.display = 'none';
             cartIconBadge.textContent = totalQuantity;
             cartIconBadge.hidden = totalQuantity === 0;
-
             return;
         }
 
