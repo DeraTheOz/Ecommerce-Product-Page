@@ -12,8 +12,6 @@ const cartModel = function () {
         if (existingItem) {
             existingItem.quantity = product.quantity;
             existingItem.price = product.price;
-
-            console.log('UPDATED CART', existingItem);
         }
     };
 
@@ -31,7 +29,7 @@ const cartModel = function () {
 
         // Remove the item from cart
         const removedItem = cartItems.splice(itemIndex, 1)[0];
-        const isCartEmpty = cartItems.length === 0; // Checks if cart is empty
+        const isCartEmpty = cartItems.length === 0;
 
         return { removedItem, isCartEmpty };
     };

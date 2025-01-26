@@ -7,7 +7,6 @@ import cartController from './cart-controller.js';
 const productController = function () {
     // Get Product Data
     const productData = productModel.getProductData();
-    console.log(productData);
 
     const init = () => {
         eventListeners();
@@ -36,61 +35,46 @@ const productController = function () {
 
         addToCartButton.addEventListener('click', () => {
             cartController.updateCartIconView();
-            // cartController.updateCartView();
-            // cartController.checkCartState();
+
+            // If empty cart is visible when item is added to cart, remove and render filled cart
+            cartController.updateFilledCartState();
         });
 
         incrementBtn.addEventListener('click', () => {
-            console.log('PRODUCT DATA', productData);
-
             // Add Product to cart
             cartController.addToCart(productData);
 
             // Update Product Quantity
             const updatedProduct = productModel.increaseItemQuantity(productData);
-            console.log('INCREASED QUANTITY', updatedProduct);
 
             // Update Product Quantity in the View
             productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
 
             // Update product in the cart
             cartController.updateCartItem(updatedProduct);
-
-            console.log('NEW PRODUCT DATA', productData);
         });
 
         decrementBtn.addEventListener('click', () => {
-            console.log('PRODUCT DATA', productData);
-
             // Add Product to cart
             cartController.addToCart(productData);
 
             // Update Product Quantity
             const updatedProduct = productModel.decreaseItemQuantity(productData);
-            console.log('DECREASED QUANTITY', updatedProduct);
-
-            //////////////////////////////
-            // Update quantity in cart
-            cartController.updateCartItem(updatedProduct);
 
             // Update Product Quantity in the View
             productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
 
+            // Update product in the cart
+            cartController.updateCartItem(updatedProduct);
+
             // Remove item from cart if quantity reaches 0
             if (updatedProduct.quantity === 0) {
-                
                 cartController.handleRemoveCartItem(productName);
+                cartController.updateCartIconView();
+
+                // If filled cart is visible when cart quantity reaches zero, remove and render empty cart
+                cartController.updateEmptyCartState();
             }
-
-            //////////////////////////////
-
-            // Update Product Quantity in the View
-            // productView.updateQuantityDisplay(productEl, updatedProduct.quantity);
-
-            // Update product in the cart
-            // cartController.updateCartItem(updatedProduct);
-
-            // console.log('NEW PRODUCT DATA', productData);
         });
     };
 

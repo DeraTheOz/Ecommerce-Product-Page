@@ -7,7 +7,6 @@ const cartView = function () {
     const cartFilled = parentEl.querySelector('.cart__filled');
 
     const renderFilledCart = cartItems => {
-
         if (cartFilled) {
             const itemsMarkup = cartItems
                 .map(function (item) {
@@ -62,11 +61,9 @@ const cartView = function () {
             cartIconBadge.style.display = 'none';
             cartIconBadge.textContent = totalQuantity;
             cartIconBadge.hidden = totalQuantity === 0;
-            console.log('CART ICON BADGE <= 0', cartIconBadge);
+
             return;
         }
-
-        console.log('CART ICON BADGE', cartIconBadge);
 
         cartIconBadge.style.display = 'block';
         cartIconBadge.textContent = totalQuantity;
