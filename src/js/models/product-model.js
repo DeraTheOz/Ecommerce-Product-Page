@@ -17,15 +17,15 @@ const productModel = function () {
 
     const decreaseItemQuantity = product => {
         return product.quantity === 0 ? (product.quantity = 0) : product.quantity--;
-        
-        // const item = cartModel.cartItems.find(item => item.name === product.name);
-        // if (!item) return null;
-
-        // item.quantity === 0 ? (item.quantity = 0) : item.quantity--;
-        // return item;
     };
 
-    return { getProductData, increaseItemQuantity, decreaseItemQuantity };
+    const resetItemQuantity = itemName => {
+        
+        const item = cartModel.cartItems.find(menuItem => menuItem.name === itemName);
+        item.quantity = 0;
+    };
+
+    return { getProductData, increaseItemQuantity, decreaseItemQuantity, resetItemQuantity };
 };
 
 export default productModel();

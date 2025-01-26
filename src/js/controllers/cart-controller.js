@@ -1,5 +1,8 @@
 import cartView from '../views/cart-view.js';
 import cartModel from '../models/cart-model.js';
+import productModel from '../models/product-model.js';
+
+import productView from '../views/product-view.js';
 
 const cartController = function () {
     const cartItems = cartModel.getCartItems();
@@ -31,6 +34,18 @@ const cartController = function () {
             updateCartView();
             cartFilled.hidden = false;
             cartFilled.classList.toggle('cart--active');
+
+            const removeBtn = cartContainer.querySelector('.cart__item--btn');
+            console.log(removeBtn);
+
+            removeBtn.addEventListener('click', () => {
+                if (!removeBtn) return;
+
+                const cartItemEl = removeBtn.closest('.cart__item');
+                const itemName = cartItemEl.dataset.name;
+
+                handleRemoveCartItem(itemName);
+            });
         });
 
         profileContainer.addEventListener('click', () => {
@@ -45,14 +60,10 @@ const cartController = function () {
             existingItem.quantity = product.quantity;
             existingItem.price = product.price;
             updateCartView();
-            console.log('EXISTING CART ITEM UPDATED', cartItems);
         } else {
-            console.log('CART', cartItems);
             cartModel.addItem(product);
         }
     };
-
-
 
     const updateCartIconView = () => {
         cartView.updateCartIcon(cartModel.getTotalQuantity());
@@ -62,9 +73,17 @@ const cartController = function () {
         cartView.renderFilledCart(cartItems);
     };
 
+    // Last stop
     const handleRemoveCartItem = productName => {
+        const productEl = document.querySelector('.product__details');
+
         // Find matching product
         const item = cartItems.find(item => item.name === productName);
+
+        // Reset menu item's default state
+        if (productEl) {
+            productModel.resetItemQuantity(item.name);
+        }
 
         // Remove product from cart
         const { removedItem, isCartEmpty } = cartModel.removeCartItem(productName);
@@ -73,6 +92,13 @@ const cartController = function () {
         // Find cart item using it's data-name and remove it
         const cartItemEl = document.querySelector(`.cart__item[data-name="${productName}"]`);
         if (cartItemEl) cartItemEl.remove();
+
+        if (isCartEmpty) {
+            console.log(cartItemEl, removedItem, item, isCartEmpty);
+            updateCartIconView();
+            productView.updateQuantityDisplay(productEl, item.quantity);
+            updateEmptyCartState();
+        } else return;
     };
 
     // Personal feature for convenience🙂

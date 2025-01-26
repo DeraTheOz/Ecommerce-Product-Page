@@ -5,7 +5,7 @@ import productView from '../views/product-view.js';
 import cartController from './cart-controller.js';
 
 const productController = function () {
-    // Get Product Data
+    // Product Data
     const productData = productModel.getProductData();
 
     const cartEmpty = document.querySelector('.cart__empty');
@@ -37,7 +37,7 @@ const productController = function () {
             // Update Product Quantity
             productModel.increaseItemQuantity(productData);
 
-            console.log(productData);
+            
 
             // Update Product Quantity in the View
             productView.updateQuantityDisplay(productEl, productData.quantity);
@@ -46,7 +46,7 @@ const productController = function () {
         decrementBtn.addEventListener('click', () => {
             // Update Product Quantity
             productModel.decreaseItemQuantity(productData);
-            console.log(productData);
+            
 
             // Update cart view
             cartController.updateCartView();
