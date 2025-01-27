@@ -19,10 +19,9 @@ const productModel = function () {
         return product.quantity === 0 ? (product.quantity = 0) : product.quantity--;
     };
 
-    const resetItemQuantity = itemName => {
-        
-        const item = cartModel.cartItems.find(menuItem => menuItem.name === itemName);
-        item.quantity = 0;
+    const resetItemQuantity = productName => {
+        const product = cartModel.cartItems.find(item => item.name === productName);
+        if (product) product.quantity = 0;
     };
 
     return { getProductData, increaseItemQuantity, decreaseItemQuantity, resetItemQuantity };

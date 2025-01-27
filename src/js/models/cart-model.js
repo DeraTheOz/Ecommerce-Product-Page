@@ -4,8 +4,6 @@ const cartModel = function () {
     const addItem = product => {
         const existingItem = cartItems.find(item => item.name === product.name);
         if (!existingItem) cartItems.push(product);
-
-        
     };
 
     const updateItem = product => {
