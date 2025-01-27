@@ -23,12 +23,9 @@ const productController = function () {
         const productEl = document.querySelector('.product__details');
         const productName = document.querySelector('.product__name')?.textContent;
         const productPrice = parseFloat(document.querySelector('.product__price')?.textContent.replace('$', ''));
-        const productQuantityEl = document.querySelector('.product__quantity');
-        const addToCartButton = document.querySelector('.button__cart');
         const decrementBtn = document.querySelector('.button__decrement');
         const incrementBtn = document.querySelector('.button__increment');
-
-        if (!productName && !productPrice && !productQuantityEl) return;
+        const addToCartButton = document.querySelector('.button__cart');
 
         productData.name = productName;
         productData.price = productPrice;

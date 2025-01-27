@@ -69,7 +69,8 @@ const cartView = function () {
         cartIconBadge.hidden = totalQuantity === 0;
     };
 
-    return { renderFilledCart, updateCartIcon };
+    
+    return { renderFilledCart, updateCartIcon,  };
 };
 
 export default cartView();

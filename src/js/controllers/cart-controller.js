@@ -5,8 +5,10 @@ import productModel from '../models/product-model.js';
 
 const cartController = function () {
     const cartItems = cartModel.getCartItems();
+    const productEl = document.querySelector('.product__details');
     const cartEmpty = document.querySelector('.cart__empty');
     const cartFilled = document.querySelector('.cart__filled');
+    const checkOutButton = document.querySelector('.button__checkout');
 
     const init = () => {
         eventListeners();
@@ -46,6 +48,8 @@ const cartController = function () {
             });
         });
 
+        checkOutButton.addEventListener('click', handleCheckOut);
+
         profileContainer.addEventListener('click', () => {
             profileContainer.classList.toggle('profile--open');
         });
@@ -71,31 +75,6 @@ const cartController = function () {
         cartView.renderFilledCart(cartItems);
     };
 
-    const handleRemoveCartItem = productName => {
-        const productEl = document.querySelector('.product__details');
-
-        // Check if product already exists in cart
-        const item = cartItems.find(item => item.name === productName);
-        if (!item) return;
-
-        // Reset menu item's default state
-        productModel.resetItemQuantity(productName);
-
-        // Remove product from cart
-        const { removedItem, isCartEmpty } = cartModel.removeCartItem(productName);
-        if (!removedItem) return;
-
-        // Find cart item using it's data-name and remove it
-        const cartItemEl = document.querySelector(`.cart__item[data-name="${productName}"]`);
-        if (cartItemEl) cartItemEl.remove();
-
-        if (isCartEmpty) {
-            updateCartIconView();
-            updateEmptyCartState();
-            productView.updateQuantityDisplay(productEl, 0);
-        }
-    };
-
     // Personal feature for convenience🙂
     const updateFilledCartState = () => {
         // If empty cart is visible when item is added to cart, remove and render filled cart
@@ -119,6 +98,44 @@ const cartController = function () {
             cartEmpty.hidden = false;
             return;
         }
+    };
+
+    const handleRemoveCartItem = productName => {
+        // Check if product already exists in cart
+        const item = cartItems.find(item => item.name === productName);
+        if (!item) return;
+
+        // Reset menu item's default state
+        productModel.resetItemQuantity(productName);
+
+        // Remove product from cart
+        const { removedItem, isCartEmpty } = cartModel.removeCartItem(productName);
+        if (!removedItem) return;
+
+        // Find cart item using it's data-name and remove it
+        const cartItemEl = document.querySelector(`.cart__item[data-name="${productName}"]`);
+        if (cartItemEl) cartItemEl.remove();
+
+        if (isCartEmpty) {
+            updateCartIconView();
+            updateEmptyCartState();
+            productView.updateQuantityDisplay(productEl, 0);
+        }
+    };
+
+    const handleCheckOut = () => {
+        // Clear all items in the cart model
+        cartModel.clearCart();
+
+        // Reset product quantities in the product model
+        productModel.resetAllItemsQuantity();
+
+        // Reset product quantites in the view
+        productView.updateQuantityDisplay(productEl, 0);
+
+        // Update the cart view
+        updateEmptyCartState();
+        updateCartIconView();
     };
 
     return {

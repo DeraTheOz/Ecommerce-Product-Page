@@ -1,6 +1,10 @@
 const cartModel = function () {
     const cartItems = [];
 
+    const clearCart = () => {
+         (cartItems.length = 0);
+    };
+
     const addItem = product => {
         const existingItem = cartItems.find(item => item.name === product.name);
         if (!existingItem) cartItems.push(product);
@@ -34,7 +38,7 @@ const cartModel = function () {
         return { removedItem, isCartEmpty };
     };
 
-    return { getCartItems, removeCartItem, cartItems, addItem, updateItem, getTotalQuantity };
+    return { clearCart, getCartItems, removeCartItem, cartItems, addItem, updateItem, getTotalQuantity };
 };
 
 export default cartModel();

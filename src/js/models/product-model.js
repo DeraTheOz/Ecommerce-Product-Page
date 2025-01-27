@@ -22,9 +22,14 @@ const productModel = function () {
     const resetItemQuantity = productName => {
         const product = cartModel.cartItems.find(item => item.name === productName);
         if (product) product.quantity = 0;
+
     };
 
-    return { getProductData, increaseItemQuantity, decreaseItemQuantity, resetItemQuantity };
+    const resetAllItemsQuantity = () => {
+        productData.quantity = 0;
+    };
+
+    return { getProductData, increaseItemQuantity, decreaseItemQuantity, resetItemQuantity, resetAllItemsQuantity };
 };
 
 export default productModel();
