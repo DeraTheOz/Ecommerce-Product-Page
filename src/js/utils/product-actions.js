@@ -5,8 +5,14 @@ import largeImage4 from '../../../images/image-product-4.jpg';
 
 const productActions = function () {
     const productImage = document.querySelector('.product__image');
+    const lightBoxImage = document.querySelector('.lightbox__image');
+
     const productThumbnails = document.querySelectorAll('.product__thumbnail');
+    const lightBoxThumbnails = document.querySelectorAll('.lightbox__thumbnail');
+
     const thumbnailImages = document.querySelectorAll('.thumbnail__image');
+    const lightBoxThumbnailImages = document.querySelectorAll('.lightbox__thumbnail--image');
+
     const largeImages = [largeImage1, largeImage2, largeImage3, largeImage4];
 
     const handleThumbnailClicks = () => {
@@ -16,15 +22,30 @@ const productActions = function () {
                 thumbnailImage.classList.add('thumbnail--active');
             });
         });
+
+        lightBoxThumbnails.forEach((thumbnailImage, i) => {
+            thumbnailImage.addEventListener('click', () => {
+                lightBoxThumbnails.forEach(thumbnail => thumbnail.classList.remove('thumbnail--active'));
+                thumbnailImage.classList.add('thumbnail--active');
+            });
+        });
     };
 
     const handleLargeImageSwitch = () => {
         productThumbnails[0].classList.add('thumbnail--active');
+        lightBoxThumbnails[0].classList.add('thumbnail--active');
 
         thumbnailImages.forEach((thumbnailImage, index) => {
             thumbnailImage.addEventListener('click', () => {
                 thumbnailImage.dataset.large = largeImages[index];
                 productImage.src = thumbnailImage.dataset.large;
+            });
+        });
+
+        lightBoxThumbnailImages.forEach((thumbnailImage, index) => {
+            thumbnailImage.addEventListener('click', () => {
+                thumbnailImage.dataset.large = largeImages[index];
+                lightBoxImage.src = thumbnailImage.dataset.large;
             });
         });
     };
