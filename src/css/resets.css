@@ -134,3 +134,28 @@ body {
     width: 14px;
     height: 16px;
 }
+
+/* LIGHTBOX */
+.lightbox__icon--close {
+    width: 16px;
+    height: 15px;
+    fill: var(--White);
+}
+
+.lightbox__icon--close:hover {
+    fill: var(--Orange);
+}
+
+.lightbox__icon--next {
+    width: 12px;
+    height: 18px;
+    stroke: var(--Black);
+}
+
+.lightbox__icon--prev {
+    width: 12px;
+    height: 18px;
+    stroke: var(--Black);
+}
+
+
