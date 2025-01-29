@@ -11,7 +11,7 @@ const cartController = function () {
     const checkOutButton = document.querySelector('.button__checkout');
 
     const init = () => {
-        eventListeners();
+        eventListeners()
     };
 
     const eventListeners = () => {

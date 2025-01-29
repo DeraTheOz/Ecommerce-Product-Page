@@ -20,7 +20,9 @@ const productController = function () {
     };
 
     const eventListeners = () => {
+        const lightBox = document.querySelector('.lightbox');
         const productEl = document.querySelector('.product__details');
+        const productImage = document.querySelector('.product__image');
         const productName = document.querySelector('.product__name')?.textContent;
         const productPrice = parseFloat(document.querySelector('.product__price')?.textContent.replace('$', ''));
         const decrementBtn = document.querySelector('.button__decrement');
@@ -29,6 +31,11 @@ const productController = function () {
 
         productData.name = productName;
         productData.price = productPrice;
+
+        productImage.addEventListener('click', () => {
+            lightBox.style.display = 'flex';
+            lightBox.hidden = false;
+        });
 
         incrementBtn.addEventListener('click', () => {
             // Update Product Quantity

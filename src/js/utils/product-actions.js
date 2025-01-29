@@ -22,30 +22,15 @@ const productActions = function () {
                 thumbnailImage.classList.add('thumbnail--active');
             });
         });
-
-        lightBoxThumbnails.forEach((thumbnailImage, i) => {
-            thumbnailImage.addEventListener('click', () => {
-                lightBoxThumbnails.forEach(thumbnail => thumbnail.classList.remove('thumbnail--active'));
-                thumbnailImage.classList.add('thumbnail--active');
-            });
-        });
     };
 
     const handleLargeImageSwitch = () => {
         productThumbnails[0].classList.add('thumbnail--active');
-        lightBoxThumbnails[0].classList.add('thumbnail--active');
 
         thumbnailImages.forEach((thumbnailImage, index) => {
             thumbnailImage.addEventListener('click', () => {
                 thumbnailImage.dataset.large = largeImages[index];
                 productImage.src = thumbnailImage.dataset.large;
-            });
-        });
-
-        lightBoxThumbnailImages.forEach((thumbnailImage, index) => {
-            thumbnailImage.addEventListener('click', () => {
-                thumbnailImage.dataset.large = largeImages[index];
-                lightBoxImage.src = thumbnailImage.dataset.large;
             });
         });
     };
