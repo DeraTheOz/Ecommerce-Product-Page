@@ -139,7 +139,7 @@ body {
 .lightbox__icon--close {
     width: 16px;
     height: 15px;
-    fill: var(--White);
+    fill: var(--White) ;
 }
 
 .lightbox__icon--close:hover {
@@ -157,5 +157,3 @@ body {
     height: 18px;
     stroke: var(--Black);
 }
-
-
