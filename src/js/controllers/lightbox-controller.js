@@ -1,17 +1,17 @@
-const lightBoxController = function () {
-    const lightBox = document.querySelector('.lightbox');
-    const slides = document.querySelectorAll('.slide');
-    const lightBoxThumbnails = document.querySelectorAll('.lightbox__thumbnail');
-    const lightBoxThumbnailImages = document.querySelectorAll('.lightbox__thumbnail--image');
-    const lightBoxThumbnailContainer = document.querySelector('.lightbox__thumbnails');
+import lightBoxModel from '../models/lightbox-model.js';
+import lightBoxView from '../views/lightbox-view.js';
 
-    let currentSlide = 0;
-    const maxSlide = slides.length - 1;
+const lightBoxController = function () {
+    const lightBoxThumbnailContainer = document.querySelector('.lightbox__thumbnails');
+    let currentSlide = lightBoxModel.getCurrentSlide();
+    const maxSlide = lightBoxModel.getMaxSlide();
+
+    
 
     const init = () => {
         eventListeners();
-        lightBoxThumbnailSlides();
-        activateSlide(0);
+        lightBoxView.lightBoxThumbnailSlides();
+        lightBoxView.activateSlide(currentSlide);
     };
 
     const eventListeners = () => {
@@ -24,64 +24,43 @@ const lightBoxController = function () {
         nextBtn.addEventListener('click', moveToNextImage);
 
         document.addEventListener('keydown', e => {
-            e.key === 'ArrowLeft' && moveToPrevImage();
-            e.key === 'ArrowRight' && moveToNextImage();
+            if (e.key === 'ArrowLeft') moveToPrevImage();
+            if (e.key === 'ArrowRight') moveToNextImage();
         });
 
+        // Set and update slides of Thumbnail images on click
         lightBoxThumbnailContainer.addEventListener('click', e => {
             if (e.target.classList.contains('lightbox__thumbnail--image')) {
                 const { slide } = e.target.dataset;
-                activateSlide(slide);
+                currentSlide = parseInt(slide);
+
+                lightBoxView.activateSlide(currentSlide);
+                lightBoxView.updateThumbnails(currentSlide);
+                lightBoxModel.setCurrentSlide(currentSlide);
             }
         });
     };
 
-    const activateSlide = currentSlide => {
-        slides.forEach((slide, index) => {
-            slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
-        });
-    };
-
     const moveToNextImage = () => {
-        if (currentSlide === maxSlide) {
-            currentSlide = 0;
-        } else {
-            currentSlide++;
-        }
+        currentSlide = lightBoxModel.moveToNextImage();
 
-        activateSlide(currentSlide);
+        lightBoxView.activateSlide(currentSlide);
+        lightBoxView.updateThumbnails(currentSlide);
     };
 
     const moveToPrevImage = () => {
-        if (currentSlide === 0) {
-            currentSlide = maxSlide;
-        } else {
-            currentSlide--;
-        }
+        currentSlide = lightBoxModel.moveToPrevImage();
 
-        activateSlide(currentSlide);
-    };
-
-    const lightBoxThumbnailSlides = () => {
-        lightBoxThumbnails[0].classList.add('thumbnail--active');
-
-        lightBoxThumbnailImages.forEach((thumbnail, i) => {
-            thumbnail.dataset.slide = `${i}`;
-        });
-
-        lightBoxThumbnails.forEach((thumbnailImage, i) => {
-            thumbnailImage.addEventListener('click', () => {
-                lightBoxThumbnails.forEach(thumbnail => thumbnail.classList.remove('thumbnail--active'));
-                thumbnailImage.classList.add('thumbnail--active');
-            });
-        });
+        lightBoxView.activateSlide(currentSlide);
+        lightBoxView.updateThumbnails(currentSlide);
     };
 
     const removeLightBox = () => {
-        lightBox.style.display = 'none';
-        lightBox.hidden = true;
         currentSlide = 0;
-        activateSlide(0);
+        lightBoxModel.resetSlide();
+        lightBoxView.hideLightBox();
+        lightBoxView.activateSlide(0);
+        lightBoxView.resetLightBoxThumbnailSlides();
     };
 
     return { init };

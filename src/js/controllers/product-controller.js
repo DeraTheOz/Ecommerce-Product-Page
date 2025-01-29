@@ -3,6 +3,7 @@ import * as Header from '../utils/nav-actions.js';
 import productModel from '../models/product-model.js';
 import productView from '../views/product-view.js';
 import cartController from './cart-controller.js';
+import lightBoxView from '../views/lightbox-view.js';
 
 const productController = function () {
     // Product Data
@@ -20,7 +21,6 @@ const productController = function () {
     };
 
     const eventListeners = () => {
-        const lightBox = document.querySelector('.lightbox');
         const productEl = document.querySelector('.product__details');
         const productImage = document.querySelector('.product__image');
         const productName = document.querySelector('.product__name')?.textContent;
@@ -32,10 +32,7 @@ const productController = function () {
         productData.name = productName;
         productData.price = productPrice;
 
-        productImage.addEventListener('click', () => {
-            lightBox.style.display = 'flex';
-            lightBox.hidden = false;
-        });
+        productImage.addEventListener('click', lightBoxView.showLightBox);
 
         incrementBtn.addEventListener('click', () => {
             // Update Product Quantity
