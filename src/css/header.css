@@ -129,10 +129,10 @@
     fill: var(--Very-dark-blue);
 }
 
-/* //758px */ /* // Tablet */
+/* // 758px // */ /* // Tablet */
 @media screen and (max-width: 47.375em) {
     .header {
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1rem;
         position: sticky;
         top: 0;
         z-index: 999;
@@ -204,5 +204,9 @@
     .nav__link + .nav__link {
         margin: 0;
         margin-top: 1rem;
+    }
+
+    .actions__cart {
+        margin-right: 1rem;
     }
 }
