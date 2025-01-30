@@ -185,6 +185,14 @@
     }
 }
 
+/* // 430px // */
+@media screen and (min-width: 26.875em) {
+    .lightbox,
+    .lightbox__image--box {
+        max-height: 25rem;
+    }
+}
+
 /* // 400px // */
 @media screen and (min-width: 25em) {
     .lightbox,
