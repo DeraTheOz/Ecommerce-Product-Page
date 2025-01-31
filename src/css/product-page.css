@@ -118,6 +118,7 @@
 
 /* ////////// */
 .button__actions {
+    min-width: 8.125rem;
     padding: 1rem;
     border-radius: 8px;
     background-color: var(--Light-grayish-blue);
