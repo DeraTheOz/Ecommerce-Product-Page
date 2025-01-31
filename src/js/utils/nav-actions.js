@@ -3,8 +3,6 @@ export const handleMenuButtonClicks = () => {
     const closeButton = document.getElementById('close');
     const nav = document.querySelector('.header__nav');
 
-    
-
     const showNav = () => {
         nav.classList.add('open');
         nav.hidden = false;
@@ -20,7 +18,7 @@ export const handleMenuButtonClicks = () => {
         closeButton.hidden = true;
         document.addEventListener('click', handleOutsideClick);
     };
-    
+
     const handleOutsideClick = event => {
         const isClickedInsideNav = nav.contains(event.target);
         const isClickedOnButton = openButton.contains(event.target) || closeButton.contains(event.target);

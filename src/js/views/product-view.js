@@ -3,8 +3,6 @@ const productView = function () {
         const quantityDisplay = productEl.querySelector('.product__quantity');
         if (!quantityDisplay) return;
         quantityDisplay.textContent = quantity;
-
-        
     };
 
     return { updateQuantityDisplay };

@@ -6,8 +6,6 @@ const lightBoxController = function () {
     let currentSlide = lightBoxModel.getCurrentSlide();
     const maxSlide = lightBoxModel.getMaxSlide();
 
-    
-
     const init = () => {
         eventListeners();
         lightBoxView.lightBoxThumbnailSlides();
