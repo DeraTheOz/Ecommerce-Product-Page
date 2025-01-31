@@ -13,8 +13,8 @@ functionality, and an image carousel.
 
 ### Links
 
-<!--- Solution URL: [Add solution URL here](https://your-solution-url.com)-->
-<!--- Live Site URL: [Add live site URL here](https://your-live-site-url.com)-->
+- Solution URL: https://github.com/DeraTheOz/Ecommerce-Product-Page
+- Live Site URL: https://dera-ecommerce-page.onrender.com
 - Frontend Mentor - https://www.frontendmentor.io/profile/DeraTheOz
 - Twitter - https://www.x.com/deraamaobi
 
@@ -23,6 +23,4 @@ functionality, and an image carousel.
 
 - Semantic HTML5 markup
 - CSS3
-- Flexbox
-- CSS Grid
 - JavaScript
